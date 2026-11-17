@@ -1,65 +1,45 @@
 # catppuccinized-themes
 
 Ready-to-use themes in [Catppuccin](https://catppuccin.com), made with
-[catppuccinizer](https://github.com/erratos/catppuccinizer).
+[catppuccinizer](https://github.com/erratos/catppuccinizer). They are sorted by
+type; each folder has previews and install instructions.
 
-## Plymouth: hexa_retro and infinite_seal (Mocha)
+| Type | Themes | |
+|---|---|---|
+| [**Plymouth**](plymouth/) (boot splash) | hexa_retro, infinite_seal (14 accents), each with a `-status` variant | [![](plymouth/assets/infinite-seal-mauve.gif)](plymouth/) |
+| [**KDE splash**](ksplash/) (after login) | Breeze, CachyOS Nord, Kuro, Matrix code (glowing), Weaving Helix Ring | [![](ksplash/assets/kuro.png)](ksplash/) |
+| [**Limine**](limine/) (boot menu) | Mocha colours + recoloured CachyOS wallpaper, mauve or lavender | [![](limine/assets/wallpaper.png)](limine/) |
+| [**Wallpapers**](wallpapers/) | Cachy Topography, CachyOS Hello logo (SVG, 4 colour sets) | [![](wallpapers/assets/cachyos-hello.png)](wallpapers/) |
 
-Two boot animations by [adi1090x](https://github.com/adi1090x/plymouth-themes),
-recoloured in Catppuccin Mocha.
+All themes are in Catppuccin Mocha, except the Macchiato wallpaper.
 
-| hexa_retro | infinite_seal (mauve) |
-|:---:|:---:|
-| ![hexa_retro](assets/hexa-retro.gif) | ![infinite_seal](assets/infinite-seal-mauve.gif) |
-| `catppuccin-mocha-hexa-retro` | `catppuccin-mocha-infinite-seal-<accent>` |
-| white → `text`, red → `red`, yellow → `yellow`, blue → `blue`, cyan → `teal` | white → accent |
+## Download
 
-infinite_seal comes in the 14 Mocha accents:
+Plymouth, KDE splash and Limine themes are attached to the
+[Releases](https://github.com/erratos/catppuccinized-themes/releases) as
+`<type>-<theme>.tar.gz`. Wallpapers are directly in the [wallpapers](wallpapers/)
+folder.
 
-![accents](assets/infinite-seal-accents.png)
-
-Every theme also has a `…-status` variant: a thin progress bar and the last
-systemd services started, under the animation.
-
-### Install
-
-Download an archive from the [Releases](../../releases), then:
-
-```bash
-tar xf catppuccin-mocha-infinite-seal-mauve.tar.gz
-sudo cp -r catppuccin-mocha-infinite-seal-mauve /usr/share/plymouth/themes/
-sudo plymouth-set-default-theme -R catppuccin-mocha-infinite-seal-mauve
-```
-
-`-R` rebuilds the initramfs, needed for the theme to show at boot. On KDE you
-can also pick it in *System Settings → Boot Splash Screen* once copied. Make
-sure `splash` is on your kernel command line and the `plymouth` hook is in your
-initramfs (`HOOKS=(… plymouth …)` in `/etc/mkinitcpio.conf`).
-
-### Other flavours and accents
-
-The releases contain Mocha. Any other combination takes one command with
-catppuccinizer:
-
-![flavours](assets/hexa-flavors.png)
-
-```bash
-catppuccinize plymouth hexa_retro -f latte
-catppuccinize plymouth infinite_seal -f macchiato -a teal --install
-```
+Want another flavour or accent? Each folder shows the catppuccinizer command
+that builds it.
 
 ## Rebuilding
 
 ```bash
-./build.sh            # needs catppuccinizer: pipx install git+https://github.com/erratos/catppuccinizer.git
+./build.sh                    # all types: plymouth ksplash limine wallpapers
+./build.sh ksplash            # one type
+python3 previews.py           # the preview images of the READMEs
 ```
 
-`build.sh` regenerates `themes/` and the archives in `dist/` that are attached
-to the releases.
+Needs [catppuccinizer](https://github.com/erratos/catppuccinizer)
+(`CATPPUCCINIZE=../catppuccinizer/catppuccinize ./build.sh` to use a clone), and,
+for the KDE splash screens and wallpapers, the original packages installed
+(listed in each folder's credits). `build.sh` writes `themes/<type>/`, the
+archives in `dist/`, and the wallpapers.
 
 ## Credits & licence
 
-- Original animations: [Aditya Shakya (@adi1090x)](https://github.com/adi1090x/plymouth-themes), GPL-3.0.
+- Original works: see each folder (adi1090x, KDE, CachyOS, Kuro, Matrix code,
+  Weaving Helix Ring). Every recolour keeps the licence of its original.
 - Colours: [Catppuccin](https://github.com/catppuccin/catppuccin).
-- Released under the GPL-3.0, like the original themes. Not affiliated with
-  the official [catppuccin/plymouth](https://github.com/catppuccin/plymouth) port.
+- Not affiliated with the official Catppuccin ports, KDE or CachyOS.
