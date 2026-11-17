@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-"""Build the README previews from themes/ and wallpapers/ (run ./build.sh first).
+"""Build the README previews from themes/ and images/ (run ./build.sh first).
 
-    python3 previews.py      # -> ksplash/assets, limine/assets, wallpapers/assets
+    python3 previews.py      # -> ksplash/assets, limine/assets, images/assets
 
 Each preview puts the original next to the recoloured versions. The originals
 are read from the installed packages (same sources as build.sh).
@@ -135,7 +135,7 @@ def limine():
     print(out.relative_to(ROOT), sheet.size, f"{out.stat().st_size // 1024} KB")
 
 
-# --------------------------------------------------------------- wallpapers
+# ------------------------------------------------------------------- images
 def svg_png(path, size=160):
     tmp = ROOT / "themes" / f".{path.stem}.png"
     tmp.parent.mkdir(exist_ok=True)
@@ -146,8 +146,8 @@ def svg_png(path, size=160):
     return im
 
 
-def wallpapers():
-    w = ROOT / "wallpapers"
+def images():
+    w = ROOT / "images"
     strip([("original", frame(CACHY_WALLS / "Cachy_Topography.jpg")),
            ("Macchiato", frame(w / "Cachy_Topography-catppuccin-macchiato-mauve.png"))],
           w / "assets/cachy-topography.png", (480, 270))
@@ -159,6 +159,6 @@ def wallpapers():
 
 
 if __name__ == "__main__":
-    steps = {"ksplash": ksplash, "limine": limine, "wallpapers": wallpapers}
+    steps = {"ksplash": ksplash, "limine": limine, "images": images}
     for name in sys.argv[1:] or steps:
         steps[name]()

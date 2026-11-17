@@ -2,13 +2,13 @@
 # Rebuild the themes and the release archives with catppuccinizer.
 #
 #   ./build.sh                       # every type
-#   ./build.sh ksplash limine        # only some: plymouth ksplash limine wallpapers
+#   ./build.sh ksplash limine        # only some: plymouth ksplash limine images
 #   CATPPUCCINIZE=../catppuccinizer/catppuccinize ./build.sh
 #
 # Output: themes/<type>/<theme>/ and dist/<type>-<theme>.tar.gz (attached to
-# the releases); the wallpapers themselves go to wallpapers/ (tracked in git).
+# the releases); the images themselves go to images/ (tracked in git).
 #
-# KDE splash screens and wallpapers are recoloured from packages that must be
+# KDE splash screens and images are recoloured from packages that must be
 # installed on the machine that builds them (listed in each type's README).
 set -euo pipefail
 cd "$(dirname "$(readlink -f "$0")")"
@@ -35,8 +35,8 @@ limine() {
         --method lut -o themes/limine
 }
 
-wallpapers() {
-    local o=wallpapers
+images() {
+    local o=images
     "$tool" image "$cachy_walls/Cachy_Topography.jpg" -f macchiato -o $o
     "$tool" image "$cachy_hello" -o $o -s mauve-lavender-mauve \
         -m cyan=mauve blue=lavender cyan-2=lavender cyan-3=mauve
@@ -49,12 +49,12 @@ wallpapers() {
 }
 
 types=("$@")
-[ ${#types[@]} -eq 0 ] && types=(plymouth ksplash limine wallpapers)
+[ ${#types[@]} -eq 0 ] && types=(plymouth ksplash limine images)
 mkdir -p dist
 for t in "${types[@]}"; do
     case $t in
         plymouth|ksplash|limine) ;;
-        wallpapers) wallpapers; continue ;;
+        images) images; continue ;;
         *) echo "unknown type: $t" >&2; exit 1 ;;
     esac
     rm -rf "themes/$t" dist/"$t"-*.tar.gz

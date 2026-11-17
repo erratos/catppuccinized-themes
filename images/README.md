@@ -1,16 +1,16 @@
-# Wallpapers and logos
+# Images: wallpapers and logos
 
 [← All themes](../README.md)
 
 The files are in this folder: open one and use *Download raw file*.
 
-## Cachy Topography (Macchiato)
+## Wallpaper: Cachy Topography (Macchiato)
 
 [`Cachy_Topography-catppuccin-macchiato-mauve.png`](Cachy_Topography-catppuccin-macchiato-mauve.png)
 
 ![Cachy Topography](assets/cachy-topography.png)
 
-## CachyOS Hello logo (SVG)
+## Logo: CachyOS Hello (SVG)
 
 The CachyOS Hello icon in four Catppuccin Mocha colour sets. They stay vector
 SVG, so they scale to any size (as an icon, on a wallpaper, in a dock…).
@@ -32,7 +32,7 @@ cp org.cachyos.hello-catppuccin-mocha-mauve-lavender-mauve.svg \
    ~/.local/share/icons/hicolor/scalable/apps/org.cachyos.hello.svg
 ```
 
-## Your own wallpapers
+## Your own images
 
 ```bash
 catppuccinize image ~/Pictures/wall.jpg -f macchiato
