@@ -25,8 +25,8 @@ ksplash() {
     "$tool" ksplash org.kde.breeze.desktop -a mauve -o $o
     "$tool" ksplash CachyOS-Nord -a mauve -o $o
     "$tool" ksplash a2n.kuro -a mauve -o $o
-    "$tool" ksplash MatrixKDEGlow -a mauve -o $o                       # green rain kept
-    "$tool" ksplash MatrixKDEGlow -a lavender -m green=accent -o $o    # lavender rain
+    "$tool" ksplash MatrixKDEGlow -a green -o $o                       # green rain + UI
+    "$tool" ksplash MatrixKDEGlow -a lavender -m green=lavender -o $o  # lavender rain + UI
     "$tool" ksplash Weaving-Helix-Ring-Dark -a mauve lavender -o $o
 }
 

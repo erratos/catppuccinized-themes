@@ -26,8 +26,8 @@ An animated cat. `catppuccin-mocha-kuro-mauve`
 
 ## Matrix code "Welcome to KDE" (glowing)
 
-Matrix rain, kept green in the mauve version, recoloured in the lavender one.
-`catppuccin-mocha-matrix-code-welcome-to-kde-glowing-{mauve,lavender}`
+Matrix rain in Catppuccin green or lavender (the rain and the interface).
+`catppuccin-mocha-matrix-code-welcome-to-kde-glowing-{green,lavender}`
 (about 40 MB each: the animation is a 581-frame WebP).
 
 ![Matrix code](assets/matrix-code-welcome-to-kde-glowing.png)

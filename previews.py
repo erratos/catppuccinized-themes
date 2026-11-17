@@ -83,7 +83,7 @@ KSPLASH = [  # (source id, image inside the package, output slug, accents)
     ("CachyOS-Nord", "contents/previews/splash.png", "cachyos-nord", ["mauve"]),
     ("a2n.kuro", "contents/previews/splash.png", "kuro", ["mauve"]),
     ("MatrixKDEGlow", "contents/splash/images/splash.webp",
-     "matrix-code-welcome-to-kde-glowing", ["mauve", "lavender"]),
+     "matrix-code-welcome-to-kde-glowing", ["green", "lavender"]),
     ("Weaving-Helix-Ring-Dark", "contents/splash/images/Helix-Ring-Dark.gif",
      "weaving-helix-ring-dark", ["mauve", "lavender"]),
 ]
